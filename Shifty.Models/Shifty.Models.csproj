@@ -54,9 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeCreate.cs" />
     <Compile Include="EmployeeListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestsCreate.cs" />
     <Compile Include="RequestsListItem.cs" />
+    <Compile Include="WorkScheduleCreate.cs" />
     <Compile Include="WorkScheduleListItem.cs" />
   </ItemGroup>
   <ItemGroup>
