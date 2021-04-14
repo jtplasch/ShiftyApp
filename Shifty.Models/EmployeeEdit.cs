@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Shifty.Models
 {
-    public class EmployeeCreate
+    public class EmployeeEdit
     {
-        [Required]
-        [Display(Name = "Full Name")]
+        public int EmployeeId { get; set; }       
         public string FullName { get; set; }
-        [Required]
         public string Position { get; set; }
-        
+
     }
 }

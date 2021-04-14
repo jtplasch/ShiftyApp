@@ -243,6 +243,7 @@
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\WorkSchedule\Create.cshtml" />
     <Content Include="Views\Requests\Create.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
