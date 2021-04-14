@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiftyApp.Data
+namespace Shifty.Models
 {
-    public class Employee
+    public class EmployeeListItem
     {
-        [Key]
         public int EmployeeId { get; set; }
         [Required]
         [Display(Name = "Full Name")]
@@ -17,7 +16,12 @@ namespace ShiftyApp.Data
         [Required]
         public string Position { get; set; }        
         
-        public virtual List<WorkSchedule> WorkSchedules { get; set; }
-        public virtual List<Requests> Requested { get; set; }
+        [Display(Name = "Days Working")]
+        public List<int> ScheduledId { get; set; }
+
+        [Display(Name = "Employee Requests")]
+        public List<int> RequestId { get; set; }
+     
     }
 }
+
