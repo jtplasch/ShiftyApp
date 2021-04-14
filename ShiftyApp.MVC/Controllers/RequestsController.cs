@@ -1,4 +1,5 @@
 ﻿using Shifty.Models;
+using Shifty.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace ShiftyApp.MVC.Controllers
         // GET: Requests
         public ActionResult Index()
         {
+            var service = new RequestsService();
             var model = new RequestsListItem[0];
             return View(model);
         }
@@ -27,11 +29,20 @@ namespace ShiftyApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RequestsCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
+                        
+            var service = new RequestsService();
 
-            }
+            if (service.CreateRequests(model))
+            {
+                TempData["Save Result"] = "Request was created";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Request couldn't be added.");
+
             return View(model);
+            
         }
     }
 }
