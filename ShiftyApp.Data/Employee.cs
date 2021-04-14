@@ -17,7 +17,7 @@ namespace ShiftyApp.Data
         [Required]
         public string Position { get; set; }        
         
-        public virtual List<WorkSchedule> WorkSchedules { get; set; }
-        public virtual List<Requests> Requested { get; set; }
+        public virtual List<WorkSchedule> Dates { get; set; }
+        public virtual List<Requests> RequestIds { get; set; }
     }
 }
