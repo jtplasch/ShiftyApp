@@ -16,5 +16,22 @@ namespace ShiftyApp.MVC.Controllers
             var model = new RequestsListItem[0];
             return View(model);
         }
+
+        //GET Requests/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(RequestsCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }

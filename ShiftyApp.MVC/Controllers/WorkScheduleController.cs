@@ -16,5 +16,22 @@ namespace ShiftyApp.MVC.Controllers
             var model = new WorkScheduleListItem[0];
             return View(model);
         }
+
+        //Get: WorkSchedule/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(WorkScheduleCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }

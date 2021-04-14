@@ -16,5 +16,22 @@ namespace ShiftyApp.MVC.Controllers
             var model = new EmployeeListItem[0];
             return View(model);
         }
+
+        //GET Employee/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(EmployeeCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }
