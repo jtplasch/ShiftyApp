@@ -1,4 +1,5 @@
 ﻿using Shifty.Models;
+using Shifty.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace ShiftyApp.MVC.Controllers
         // GET: Employee
         public ActionResult Index()
         {
+            var service = new EmployeeService();
             var model = new EmployeeListItem[0];
             return View(model);
         }
@@ -27,11 +29,20 @@ namespace ShiftyApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EmployeeCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);            
 
-            }
+            var service = new EmployeeService();
+
+            if (service.CreateEmployee(model))
+            {
+                TempData["Save Result"] = "Employee was created";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Employee couldn't be added.");
+           
             return View(model);
         }
+            
     }
 }
