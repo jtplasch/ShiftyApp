@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Shifty.Models
 {
-    public class RequestsListItem
+    public class RequestsEdit
     {
         public int RequestId { get; set; }
         public RequestType TypeOfRequest { get; set; }
-        public string Reason { get; set; }
+        public string Reason { get; set; }        
         public string Date { get; set; }
-        public List<int> EmployeeId { get; set; }
+        public int EmployeeId { get; set; }
     }
 }

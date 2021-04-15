@@ -14,7 +14,7 @@ namespace ShiftyApp.Data
         public int ScheduledId { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Required]
         [ForeignKey(nameof(Employee))]

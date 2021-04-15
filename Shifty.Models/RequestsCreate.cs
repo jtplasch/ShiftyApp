@@ -14,7 +14,7 @@ namespace Shifty.Models
         public RequestType TypeOfRequest { get; set; }
         public string Reason { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int EmployeeId { get; set; }
     }
 }

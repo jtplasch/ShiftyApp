@@ -10,6 +10,12 @@ namespace Shifty.Services
 {
     public class RequestsService
     {
+        private readonly Guid _userId;
+
+        public RequestsService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateRequests(RequestsCreate model)
         {
             var entity =
@@ -32,23 +38,59 @@ namespace Shifty.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
-                    ctx
-                        .Requested
-                        //Dont need user Id because we don't have Guid
-                        .Select(
-                            e =>
-                                new RequestsListItem
-                                {
-                                    RequestId = e.RequestId,
-                                    TypeOfRequest = e.TypeOfRequest,
-                                    Reason = e.Reason,
-                                    Date = e.Date,                                    
-                                }
-                        );
-
+                var query = ctx.Requested.Select(e => new RequestsListItem
+                {
+                    RequestId = e.RequestId,
+                    TypeOfRequest = e.TypeOfRequest,
+                    Reason = e.Reason,
+                    Date = e.Date
+                });
                 return query.ToArray();
             }
         }
+
+        public RequestsDetail GetRequestsDetailById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var requests = ctx.Requested.Single(s => s.RequestId == id);
+                return new RequestsDetail
+                {
+                    RequestId = requests.RequestId,
+                    TypeOfRequest = requests.TypeOfRequest,
+                    Reason = requests.Reason,
+                    Date = requests.Date,
+                    EmployeeId = requests.EmployeeId
+                };
+            }
+        }
+
+        public bool UpdateRequests(RequestsEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var requests = ctx.Requested.Single(s => s.RequestId == model.RequestId);
+                requests.RequestId = model.RequestId;
+                requests.TypeOfRequest = model.TypeOfRequest;
+                requests.Reason = model.Reason;
+                requests.Date = model.Date;
+                requests.EmployeeId = model.EmployeeId;
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        }
+
+        public bool DeleteRequests(int requestId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Requested.Single(e => e.RequestId == requestId);
+                ctx.Requested.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+
     }
 }
