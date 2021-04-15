@@ -14,6 +14,9 @@ Database Diagram: https://dbdiagram.io/d/606535a4ecb54e10c33e3918
 Trello Board: https://trello.com/b/gmPEyc73/red-badge-project
 
 
+Azure Deployment: Coming Soon
+
+
 
 Please continue to follow as there are many stretch goals to be implemented!
 
