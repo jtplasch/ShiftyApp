@@ -18,7 +18,7 @@ namespace Shifty.Models
         [Required]
         public string Position { get; set; }
 
-        public List<DateTime> Dates { get; set; } = new List<DateTime>();
+        public List<string> Dates { get; set; } = new List<string>();
         public List<int> RequestId { get; set; } = new List<int>();
     }
 }

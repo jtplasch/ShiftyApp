@@ -33,9 +33,7 @@ namespace Shifty.Services
             }
         }
         public bool CreateEmployee(EmployeeCreate model)
-        {
-            
-
+        {            
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = new Employee()

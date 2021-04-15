@@ -9,7 +9,7 @@ namespace Shifty.Models
     public class WorkScheduleListItem
     {
         public int ScheduledId { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public List<int> EmployeeId { get; set; }        
     }
 }

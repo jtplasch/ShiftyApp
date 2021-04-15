@@ -10,7 +10,7 @@ namespace Shifty.Models
     public class WorkScheduleCreate
     {
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int EmployeeId { get; set; }
     }      
 }
