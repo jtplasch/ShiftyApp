@@ -63,7 +63,9 @@
     <Compile Include="RequestsDetail.cs" />
     <Compile Include="RequestsEdit.cs" />
     <Compile Include="RequestsListItem.cs" />
+    <Compile Include="WorkScheduleDetail.cs" />
     <Compile Include="WorkScheduleCreate.cs" />
+    <Compile Include="WorkScheduleEdit.cs" />
     <Compile Include="WorkScheduleListItem.cs" />
   </ItemGroup>
   <ItemGroup>
