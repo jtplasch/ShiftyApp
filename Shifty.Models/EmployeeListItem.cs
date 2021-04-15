@@ -17,7 +17,7 @@ namespace Shifty.Models
         public string Position { get; set; }        
         
         [Display(Name = "Days Working")]
-        public List<int> ScheduledId { get; set; }
+        public List<string> ScheduledId { get; set; }
 
         [Display(Name = "Employee Requests")]
         public List<int> RequestId { get; set; }
